@@ -1,0 +1,22 @@
+A more reliable solution is to use JavaScript to dynamically set the media query breakpoint, or, if the pixel offset is relatively small, it can often be safely ignored, relying on the percentage calculation alone.  For instance:
+
+```css
+/* Solution using JavaScript (see example below)
+@media (max-width: var(--dynamic-breakpoint)) {
+  /* Styles here */
+}
+
+/* or, alternatively, omitting the pixel offset altogether if appropriate */
+@media (max-width: 100vw) {
+  /* Styles here */
+}
+```
+
+**JavaScript Example (Illustrative):**
+
+```javascript
+const viewportWidth = window.innerWidth;
+const dynamicBreakpoint = viewportWidth - 100; // Adjust offset as needed
+document.documentElement.style.setProperty('--dynamic-breakpoint', `${dynamicBreakpoint}px`);
+```
+This JavaScript code dynamically calculates the breakpoint and sets it as a CSS custom property, ensuring consistent behavior across different browsers.  Choose the solution that best fits your project's requirements and context.
