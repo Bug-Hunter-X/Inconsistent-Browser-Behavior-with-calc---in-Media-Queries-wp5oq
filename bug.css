@@ -1,0 +1,9 @@
+The following CSS code snippet demonstrates an uncommon error related to the usage of the `calc()` function within media queries.  The issue arises when attempting to calculate a value that involves subtracting a percentage from a fixed pixel value.  Browsers often struggle with this scenario.
+
+```css
+@media (max-width: calc(100vw - 100px)) {
+  /* Styles here */
+}
+```
+
+The `calc(100vw - 100px)` expression aims to create a responsive breakpoint based on the viewport width minus 100 pixels. However, inconsistent browser behavior might occur because some browsers have trouble directly subtracting pixels from percentages within the `calc()` function used in a media query's conditional statement.
